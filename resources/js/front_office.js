@@ -1,7 +1,7 @@
 window.vue = require('vue')
 
 import Vue from 'vue'
-import App from './views/GuestHome'
+import App from './components/App.vue'
 
 const app = new Vue({
     el: '#root',

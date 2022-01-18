@@ -7,12 +7,14 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-
+         <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
@@ -29,9 +31,12 @@
                             <li class="mx-3">Home</li>
                             <li class="mx-3">Home</li>
                         </ul>
-                        <button class="btn bg-pink">
-                            Logout
-                        </button>
+                        <form action="{{route('logout')}}" method="post">
+                            <button class="btn bg-pink">
+                                Logout
+                            </button>
+                        </form>
+
                     </div>
                 </nav>
             </header>
@@ -41,6 +46,10 @@
                         <div class="col-5 bg-pink h-95">
                             <h1 class="text-white text-center mt-5">Welcome User!</h1>
                             <h3 class="text-white text-center mt-5">This is your private dashboard</h3>
+                            <ul class="list-unstyled mb-0 mt-5 text-center">
+                                <li><h4><a href="{{route('admin.home')}}" class="text-white">Home</a></h4></li>
+                                <li><h4><a href="{{route('admin.users.index')}}" class="text-white">Show users</a></h4></li>
+                            </ul>
                         </div>
                         <div class="col-7">
                             <div class="title-container rounded">

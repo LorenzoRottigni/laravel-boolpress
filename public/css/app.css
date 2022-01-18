@@ -10975,11 +10975,15 @@ header {
 }
 
 footer {
-  background-color: #1c555d;
+  background-color: #48639C;
+}
+
+.text-blue {
+  color: #48639C;
 }
 
 .section-title {
-  background-color: #1c555d;
+  background-color: #48639C;
   color: white;
   font-weight: bold;
 }
@@ -10995,7 +10999,7 @@ footer {
 
 .title-container {
   padding: 2rem;
-  background-color: #1c555d;
+  background-color: #48639C;
   color: white;
 }
 
@@ -11003,5 +11007,21 @@ footer {
   padding: 2rem;
   background-color: #ff8ea5;
   color: white;
+}
+
+.fs-icon {
+  font-size: 2em !important;
+}
+
+.border-y-info {
+  border-top: solid 1px #48639C;
+  border-bottom: solid 1px #48639C;
+}
+
+.role {
+  background-color: #48639C;
+  padding: 0.3rem 1rem;
+  color: white;
+  border-radius: 35px;
 }
 

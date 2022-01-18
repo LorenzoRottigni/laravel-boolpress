@@ -21,6 +21,8 @@ Route::get('/', function () {
     return view('guest.home');
 });
 
+
+
 Auth::routes();
 
 # Route::get('/home', '/Admin/HomeController@index')->name('home');
@@ -32,4 +34,12 @@ Route::namespace('Admin')
     ->group(function(){
         Route::get('/', 'HomeController@index')
         ->name('home');
+
+        Route::resource('users','UserController');
     });
+
+Route::resource('posts', 'PostController');
+
+Route::get('{any?}', function(){
+    return view("guest.home")->name('guest home');
+});

@@ -8,7 +8,8 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -30,22 +31,22 @@
                             <li class="mx-3">Home</li>
                             <li class="mx-3">Home</li>
                         </ul>
-                        <a href="{{ route('login') }}">
+                        <form action="/login" method="get">
                             <button class="btn bg-pink">
                                 Login
                             </button>
-                        </a>
+                        </form>
                     </div>
                 </nav>
             </header>
-            <main class="flex-grow-1">
+            <main class="flex-grow-1 overflow-auto">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
                             <div class="title-container-pink rounded">
                                 <h1> @yield('title')</h1>
                             </div>
-                            <div class="d-flex h-100 align-items-center">
+                            <div class="d-flex h-100 align-items-center justify-content-center">
                                 @yield('main')
                             </div>
                         </div>
@@ -57,6 +58,6 @@
             </footer>
         </div>
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/front_office.js') }}" defer></script>
     </body>
 </html>
