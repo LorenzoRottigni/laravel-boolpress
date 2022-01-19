@@ -25,18 +25,17 @@
                     <img src="https://fontmeme.com/permalink/220117/5ba96e9b8ce780ed5447fcd83b0ae998.png" alt="battlefield-2042-font" border="0">
                     <div class="d-flex align-items-center">
                         <ul class="list-unstyled mb-0 d-flex justify-content-center text-dark">
-                            <li class="mx-3">Home</li>
-                            <li class="mx-3">Home</li>
-                            <li class="mx-3">Home</li>
-                            <li class="mx-3">Home</li>
-                            <li class="mx-3">Home</li>
+                            <li class="mx-3">Home Page</li>
+                            <li class="mx-3">About</li>
+                            <li class="mx-3">Contacts</li>
+                            <li class="mx-3">Report an issue</li>
+                            <li class="mx-3">join us</li>
                         </ul>
-                        <form action="{{route('logout')}}" method="post">
-                            <button class="btn bg-pink">
+                        <button class="btn bg-pink">
+                            <a href="{{route('logout')}}">
                                 Logout
-                            </button>
-                        </form>
-
+                            </a>
+                        </button>
                     </div>
                 </nav>
             </header>
@@ -44,16 +43,22 @@
                 <div class="container-fluid h-100">
                     <div class="row h-100">
                         <div class="col-5 bg-pink h-95">
-                            <h1 class="text-white text-center mt-5">Welcome User!</h1>
-                            <h3 class="text-white text-center mt-5">This is your private dashboard</h3>
-                            <ul class="list-unstyled mb-0 mt-5 text-center">
+                            <h1 class="text-white mt-5">Welcome user !</h1>
+                            <h3 class="text-white py-2 mt-4 mb-0 border-bottom border-top"> dashboard</h3>
+                            <ul class="list-unstyled mb-0 mt-5 ">
                                 <li><h4><a href="{{route('admin.home')}}" class="text-white">Home</a></h4></li>
+                                <li><h4><a href="{{route('admin.posts.index', 2)}}" class="text-white">Show posts</a></h4></li>
+                                <li><h4><a href="{{route('admin.posts.show', 2)}}" class="text-white">Show a post</a></h4></li>
+                                <li><h4><a href="{{route('admin.posts.edit', 12)}}" class="text-white">Edit a post</a></h4></li>
+                                <li><h4><a href="{{route('admin.posts.create')}}" class="text-white">Create a post</a></h4></li>
                                 <li><h4><a href="{{route('admin.users.index')}}" class="text-white">Show users</a></h4></li>
+                                <li><h4><a href="{{route('admin.users.index')}}" class="text-white">Edit your user profile</a></h4></li>
+                                <li><h4><a href="{{route('admin.users.index')}}" class="text-white">Create a new user</a></h4></li>
                             </ul>
                         </div>
                         <div class="col-7">
                             <div class="title-container rounded">
-                                <h1> @yield('title')</h1>
+                                <h1 class="mb-0"> @yield('title')</h1>
                             </div>
                             @yield('main')
                         </div>

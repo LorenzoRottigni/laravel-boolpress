@@ -4,7 +4,7 @@ use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Auth;
-
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    //return view('guest.home');
-    return view('guest.home');
-});
+//Route::get('/', function () {
+//    //return view('guest.home');
+//    return view('guest.home');
+//})->name("guest.home");
 
 
 
@@ -36,10 +36,15 @@ Route::namespace('Admin')
         ->name('home');
 
         Route::resource('users','UserController');
-    });
 
-Route::resource('posts', 'PostController');
+        Route::resource('posts', 'PostController');
+    }
+);
+
+
+
+
 
 Route::get('{any?}', function(){
-    return view("guest.home")->name('guest home');
+    return view("guest.home");
 });

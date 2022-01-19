@@ -72,7 +72,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #ffffff;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -10975,15 +10975,15 @@ header {
 }
 
 footer {
-  background-color: #48639C;
+  background-color: #08587b;
 }
 
 .text-blue {
-  color: #48639C;
+  color: #08587b;
 }
 
 .section-title {
-  background-color: #48639C;
+  background-color: #08587b;
   color: white;
   font-weight: bold;
 }
@@ -10997,9 +10997,15 @@ footer {
   color: white;
 }
 
+.bg-blue {
+  background-color: #08587b;
+  color: white;
+  font-weight: bold;
+}
+
 .title-container {
   padding: 2rem;
-  background-color: #48639C;
+  background-color: #08587b;
   color: white;
 }
 
@@ -11014,12 +11020,12 @@ footer {
 }
 
 .border-y-info {
-  border-top: solid 1px #48639C;
-  border-bottom: solid 1px #48639C;
+  border-top: solid 1px #08587b;
+  border-bottom: solid 1px #08587b;
 }
 
 .role {
-  background-color: #48639C;
+  background-color: #08587b;
   padding: 0.3rem 1rem;
   color: white;
   border-radius: 35px;
