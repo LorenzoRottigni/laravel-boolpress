@@ -10,6 +10,15 @@ class Post extends Model
         'title',
         'content',
         'topics',
-        'creator_id'
+        'topic_id',
+        'user_id'
     ];
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+
+    public function topic(){
+        return $this->belongsTo('App\Topic');
+    }
 }

@@ -72,7 +72,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #ffffff;
+  background-color: #f8fafc;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -11021,7 +11021,6 @@ footer {
 
 .border-y-info {
   border-top: solid 1px #08587b;
-  border-bottom: solid 1px #08587b;
 }
 
 .role {
@@ -11029,5 +11028,36 @@ footer {
   padding: 0.3rem 1rem;
   color: white;
   border-radius: 35px;
+}
+
+.posts-container {
+  height: 70vh;
+  overflow: auto;
+  border-bottom: ridge 10px #08587b;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.posts-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.posts-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.posts-container::-webkit-scrollbar-thumb {
+  background: #08587b;
+  border-radius: 30px;
+}
+
+.posts-container::-webkit-scrollbar-thumb:hover {
+  background: #08587b;
+}
+
+.post-card {
+  border-bottom: solid 1px #08587b;
 }
 

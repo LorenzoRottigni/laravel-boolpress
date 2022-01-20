@@ -21,7 +21,7 @@
     <body>
         <div class="d-flex flex-column full-height">
             <header class="py-5 px-3">
-                <nav class="d-flex justify-content-between align-">
+                <nav class="d-flex justify-content-between align-items-center flex-wrap">
                     <img src="https://fontmeme.com/permalink/220117/5ba96e9b8ce780ed5447fcd83b0ae998.png" alt="battlefield-2042-font" border="0">
                     <div class="d-flex align-items-center">
                         <ul class="list-unstyled mb-0 d-flex justify-content-center text-dark">
@@ -56,7 +56,7 @@
                                 <li><h4><a href="{{route('admin.users.index')}}" class="text-white">Create a new user</a></h4></li>
                             </ul>
                         </div>
-                        <div class="col-7">
+                        <div class="col-7 h-95">
                             <div class="title-container rounded">
                                 <h1 class="mb-0"> @yield('title')</h1>
                             </div>

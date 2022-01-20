@@ -66,7 +66,6 @@ footer{
 
 .border-y-info{
     border-top: solid 1px #08587b;
-    border-bottom: solid 1px #08587b;
 }
 
 .role{
@@ -74,4 +73,36 @@ footer{
     padding: 0.3rem 1rem;
     color: white;
     border-radius: 35px;
+}
+
+.posts-container{
+    height: 70vh;
+    overflow: auto;
+
+    border-bottom: ridge 10px #08587b;
+    /* width */
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: #08587b;
+      border-radius: 30px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #08587b;
+    }
+}
+
+.post-card{
+    border-bottom: solid 1px #08587b;
+
 }

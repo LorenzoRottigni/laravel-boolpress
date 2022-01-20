@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Topic;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,6 +19,12 @@ class PostController extends Controller
     {
         $postsList = Post::all();
 
+        foreach ($postsList as $post) {
+            $topic = Topic::find($post->topic_id);
+            $user = User::find($post->user_id);
+            $post["user_name"] = $user->name;
+            $post["topic"] = $topic->name;
+        }
         return view("admin.posts.index", compact('postsList'));
     }
     /**
@@ -26,9 +34,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        $user = Auth::user();
+        $topics = Topic::all();
 
-        return view("admin.posts.create", ["user"=>$user]);
+        return view("admin.posts.create", compact('topics'));
     }
 
     /**
@@ -41,13 +49,12 @@ class PostController extends Controller
     {
         $data = $request->all();
 
-        $user = Auth::user();
-
-        $data["creator_id"] = 2;
-
         $newPost = new Post();
 
         $newPost->fill($data);
+        $newPost->user_id = Auth::id();
+
+        var_dump($data["topic_id"]);
         //$newPost = new Post();
         //$newPost->title = $data["title"];
         //$newPost->content = $data["content"];
@@ -68,14 +75,11 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        $user = Auth::user();
-        //return $post;
-        return view('admin.posts.show',
-            [
-                "post"=>compact('post'),
-                "user"=>$user
-            ]
-        );
+        $topic = Topic::find($post->topic_id);
+        $user = User::find($post->user_id);
+        $post["user_name"] = $user->name;
+        $post["topic"] = $topic->name;
+        return view('admin.posts.show', compact('post'));
     }
 
     /**
@@ -86,9 +90,12 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $user = Auth::user();
-
-        return view('admin.posts.edit', ["post"=>$post, "user"=>$user, "postc"=>compact('post')]);
+        $topics = Topic::all();
+        return view('admin.posts.edit',
+        [
+            "post" => $post,
+            "topics" => $topics
+        ]);
     }
 
     /**
@@ -104,7 +111,7 @@ class PostController extends Controller
 
         $post->update($data);
 
-        return redirect()->route('posts.show', $post->id);
+        return redirect()->route('admin.posts.show', $post->id);
     }
 
     /**

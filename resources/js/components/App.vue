@@ -7,15 +7,15 @@
         </div>
         <div class="col-8 text-right">
             <h1 class="section-title rounded p-3">This is an awesome blog !</h1>
-            <ul class="list-unstyled mb-0">
+            <ul class="list-unstyled mb-0 posts-container">
                 <li class="p-3 border-bottom"
                 :key="'post-'+index" v-for="(post, index) in posts">
                     <h2>{{post.id}} | {{post.title}}</h2>
                     <p>{{post.content}}</p>
                     <div class="post-footer d-flex justify-content-between">
-                        <span>{{post.topic}}</span>
-                        <span>{{post.creator_id}}</span>
-                        <span>{{post.created_at}}</span>
+                        <span>About {{post.topic}}</span>
+                        <span>Created by {{post.user_name}}</span>
+                        <span>At {{post.created_at}}</span>
                     </div>
                 </li>
             </ul>

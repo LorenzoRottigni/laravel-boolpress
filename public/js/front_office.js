@@ -3095,7 +3095,7 @@ var render = function () {
       _vm._v(" "),
       _c(
         "ul",
-        { staticClass: "list-unstyled mb-0" },
+        { staticClass: "list-unstyled mb-0 posts-container" },
         _vm._l(_vm.posts, function (post, index) {
           return _c(
             "li",
@@ -3109,11 +3109,11 @@ var render = function () {
                 "div",
                 { staticClass: "post-footer d-flex justify-content-between" },
                 [
-                  _c("span", [_vm._v(_vm._s(post.topic))]),
+                  _c("span", [_vm._v("About " + _vm._s(post.topic))]),
                   _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(post.creator_id))]),
+                  _c("span", [_vm._v("Created by " + _vm._s(post.user_name))]),
                   _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(post.created_at))]),
+                  _c("span", [_vm._v("At " + _vm._s(post.created_at))]),
                 ]
               ),
             ]

@@ -23,8 +23,8 @@ class PostsTableSeeder extends Seeder
             $newPost = new Post();
             $newPost->title = $faker->text();
             $newPost->content = $paragraphs_string;
-            $newPost->creator_id = $faker->randomDigit(0);
-            $newPost->topics = $faker->word();
+            $newPost->topic_id = $faker->numberBetween(1,6);
+            $newPost->user_id = $faker->numberBetween(1, 30);
             $newPost->save();
         }
     }
