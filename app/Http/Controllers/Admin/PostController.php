@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use App\Topic;
 use App\User;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,14 +18,14 @@ class PostController extends Controller
      */
     public function index()
     {
-        $postsList = Post::all();
-
-        foreach ($postsList as $post) {
-            $topic = Topic::find($post->topic_id);
-            $user = User::find($post->user_id);
-            $post["user_name"] = $user->name;
-            $post["topic"] = $topic->name;
-        }
+        //$postsList = Post::all();
+        $postsList = Post::with('user','topic','tag')->get();
+        //foreach ($postsList as $post) {
+        //    $topic = Topic::find($post->topic_id);
+        //    $user = User::find($post->user_id);
+        //    $post["user_name"] = $user->name;
+        //    $post["topic"] = $topic->name;
+        //}
         return view("admin.posts.index", compact('postsList'));
     }
     /**
@@ -35,8 +36,14 @@ class PostController extends Controller
     public function create()
     {
         $topics = Topic::all();
+        $tags = Tag::all();
 
-        return view("admin.posts.create", compact('topics'));
+        return view("admin.posts.create",
+        [
+            'topics' => $topics,
+            'tags' => $tags
+        ]
+        );
     }
 
     /**
@@ -54,15 +61,15 @@ class PostController extends Controller
         $newPost->fill($data);
         $newPost->user_id = Auth::id();
 
-        var_dump($data["topic_id"]);
-        //$newPost = new Post();
-        //$newPost->title = $data["title"];
-        //$newPost->content = $data["content"];
-        //$newPost->creator_id = Auth::id();
-        //$newPost->topics = $data["topics"];
         $newPost->save();
 
+        //foreach ($data["tags"] as $tag) {
+        //    $newPost->tags()->attach($tag);
+        //}
 
+        $newPost->tags()->sync($data["tags"]);
+
+        var_dump('synced');
         return redirect('/');
     }
 
@@ -91,10 +98,13 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $topics = Topic::all();
+        $tags = Tag::all();
+
         return view('admin.posts.edit',
         [
             "post" => $post,
-            "topics" => $topics
+            "topics" => $topics,
+            "tags" => $tags
         ]);
     }
 

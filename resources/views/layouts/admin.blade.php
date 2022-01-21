@@ -52,8 +52,6 @@
                                 <li><h4><a href="{{route('admin.posts.edit', 12)}}" class="text-white">Edit a post</a></h4></li>
                                 <li><h4><a href="{{route('admin.posts.create')}}" class="text-white">Create a post</a></h4></li>
                                 <li><h4><a href="{{route('admin.users.index')}}" class="text-white">Show users</a></h4></li>
-                                <li><h4><a href="{{route('admin.users.index')}}" class="text-white">Edit your user profile</a></h4></li>
-                                <li><h4><a href="{{route('admin.users.index')}}" class="text-white">Create a new user</a></h4></li>
                             </ul>
                         </div>
                         <div class="col-7 h-95">

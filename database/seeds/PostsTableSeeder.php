@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\Post;
-
+use App\Tag;
 
 class PostsTableSeeder extends Seeder
 {
@@ -17,7 +17,9 @@ class PostsTableSeeder extends Seeder
         $paragraphs = $faker->paragraphs(5);
         $paragraphs_string = implode(",", $paragraphs);
 
-        dump($paragraphs_string);
+        $tags_length = count(Tag::all());
+
+
 
         for($i = 0; $i < 30; $i++){
             $newPost = new Post();
@@ -26,6 +28,13 @@ class PostsTableSeeder extends Seeder
             $newPost->topic_id = $faker->numberBetween(1,6);
             $newPost->user_id = $faker->numberBetween(1, 30);
             $newPost->save();
+            $newPost->tag()->sync(
+                [
+                    $faker->numberBetween(1, $tags_length),
+                    $faker->numberBetween(1, $tags_length),
+                    $faker->numberBetween(1, $tags_length)
+                ]
+            );
         }
     }
 }

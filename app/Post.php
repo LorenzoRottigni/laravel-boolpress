@@ -21,4 +21,8 @@ class Post extends Model
     public function topic(){
         return $this->belongsTo('App\Topic');
     }
+
+    public function tag(){
+        return $this->belongsToMany('App\Tag');
+    }
 }

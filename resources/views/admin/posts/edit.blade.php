@@ -20,6 +20,18 @@
         </textarea>
     </div>
     <div class="form-group">
+        <label for="tags" class="form-label text-center">(Hold CTRL) Tags:</label>
+        <select name="tags[]" id="tags" size="6" class="form-control w-50 text-center text-white" multiple aria-label="multiple select example">
+            @foreach ($tags as $tag)
+                <option style="background-color: {{$tag->color}};"
+                    @if ($post->tag->contains($tag)) selected @endif
+                value="{{$tag->id}}">
+                    {{$tag->name}}
+                </option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
         <label class="form-label">Topic</label>
         <select name="topic_id" class="form-control">
           @foreach($topics as $topic)
