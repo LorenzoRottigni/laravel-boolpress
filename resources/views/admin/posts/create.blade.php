@@ -47,13 +47,16 @@
     <div class="form-group">
         <label for="tags" class="form-label text-center">(Hold CTRL) Tags:</label>
         <select name="tags[]" id="tags" size="6"
-        class="form-control w-50 text-center text-white"
+        class="form-control w-25 text-center"
         multiple>
             @foreach ($tags as $tag)
-                <option style="background-color: {{$tag->color}};"
+                <option style="
+                    border: solid 1px {{$tag->color}};
+                    border-top: none;"
                 value="{{$tag->id}}">
                     {{$tag->name}}
                 </option>
+
             @endforeach
         </select>
     </div>
