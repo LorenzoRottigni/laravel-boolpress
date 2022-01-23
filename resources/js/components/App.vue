@@ -12,8 +12,14 @@
                 :key="'post-'+index" v-for="(post, index) in posts">
                     <h2>{{post.id}} | {{post.title}}</h2>
                     <p>{{post.content}}</p>
+                    <h4 class="my-3">
+                        <span v-for="(tag, index) in post.tag" :key="'tag-'+index"
+                        class="badge text-white" :style="'background-color : ' + tag.color">
+                            {{tag.name}}
+                        </span>
+                    </h4>
                     <div class="post-footer d-flex justify-content-between">
-                        <span>About {{post.topic}}</span>
+                        <span>About {{post.topic.name}}</span>
                         <span>Created by {{post.user_name}}</span>
                         <span>At {{post.created_at}}</span>
                     </div>
@@ -40,6 +46,7 @@ export default {
         axios.get('/api/posts')
             .then((response)=>{
                 this.posts = response.data
+                console.log(this.posts);
             })
             .catch((err)=>{
                 console.log(err)

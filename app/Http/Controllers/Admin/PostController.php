@@ -54,6 +54,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'bail|required|unique:posts|min:5|max:50',
+            'content' => 'bail|required|unique:posts|min:20|max:255'
+            //'title' => ['required','unique:posts','max:255']
+        ]);
+
         $data = $request->all();
 
         $newPost = new Post();
@@ -67,7 +73,7 @@ class PostController extends Controller
         //    $newPost->tags()->attach($tag);
         //}
 
-        $newPost->tags()->sync($data["tags"]);
+        $newPost->tag()->sync($data["tags"]);
 
         var_dump('synced');
         return redirect('/');
@@ -117,6 +123,12 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $request->validate([
+            'title' => 'bail|required|unique:posts|min:5|max:50',
+            'content' => 'bail|required|unique:posts|min:20|max:255'
+            //'title' => ['required','unique:posts','max:255']
+        ]);
+
         $data = $request->all();
 
         $post->update($data);

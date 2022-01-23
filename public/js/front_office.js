@@ -1935,6 +1935,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
@@ -1949,6 +1955,7 @@ __webpack_require__.r(__webpack_exports__);
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/posts').then(function (response) {
       _this.posts = response.data;
+      console.log(_this.posts);
     })["catch"](function (err) {
       console.log(err);
     });
@@ -3106,10 +3113,33 @@ var render = function () {
               _c("p", [_vm._v(_vm._s(post.content))]),
               _vm._v(" "),
               _c(
+                "h4",
+                { staticClass: "my-3" },
+                _vm._l(post.tag, function (tag, index) {
+                  return _c(
+                    "span",
+                    {
+                      key: "tag-" + index,
+                      staticClass: "badge text-white",
+                      style: "background-color : " + tag.color,
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(tag.name) +
+                          "\n                    "
+                      ),
+                    ]
+                  )
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c(
                 "div",
                 { staticClass: "post-footer d-flex justify-content-between" },
                 [
-                  _c("span", [_vm._v("About " + _vm._s(post.topic))]),
+                  _c("span", [_vm._v("About " + _vm._s(post.topic.name))]),
                   _vm._v(" "),
                   _c("span", [_vm._v("Created by " + _vm._s(post.user_name))]),
                   _vm._v(" "),

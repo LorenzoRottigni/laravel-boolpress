@@ -21,13 +21,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/posts', function(){
-    $postsList = Post::all();
-    foreach ($postsList as $post) {
-        $topic = Topic::find($post->topic_id);
-        $user = User::find($post->user_id);
-        $post["user_name"] = $user->name;
-        $post["topic"] = $topic->name;
-    }
+    $postsList = Post::with('user','topic','tag')->get();
+
+    //foreach ($postsList as $post) {
+    //    $topic = Topic::find($post->topic_id);
+    //    $user = User::find($post->user_id);
+    //    $post["user_name"] = $user->name;
+    //    $post["topic"] = $topic->name;
+    //}
     return $postsList;
 });
 
