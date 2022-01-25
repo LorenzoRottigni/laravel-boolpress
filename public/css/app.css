@@ -11030,33 +11030,6 @@ footer {
   border-radius: 35px;
 }
 
-.posts-container {
-  height: 70vh;
-  overflow: auto;
-  border-bottom: ridge 10px #08587b;
-  /* width */
-  /* Track */
-  /* Handle */
-  /* Handle on hover */
-}
-
-.posts-container::-webkit-scrollbar {
-  width: 10px;
-}
-
-.posts-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.posts-container::-webkit-scrollbar-thumb {
-  background: #08587b;
-  border-radius: 30px;
-}
-
-.posts-container::-webkit-scrollbar-thumb:hover {
-  background: #08587b;
-}
-
 .post-card {
   border-bottom: solid 1px #08587b;
 }

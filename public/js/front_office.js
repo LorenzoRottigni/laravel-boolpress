@@ -1941,6 +1941,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
@@ -1953,8 +1954,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/posts').then(function (response) {
-      _this.posts = response.data;
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/posts?page=2").then(function (response) {
+      _this.posts = response.data.data;
       console.log(_this.posts);
     })["catch"](function (err) {
       console.log(err);
@@ -3141,7 +3142,7 @@ var render = function () {
                 [
                   _c("span", [_vm._v("About " + _vm._s(post.topic.name))]),
                   _vm._v(" "),
-                  _c("span", [_vm._v("Created by " + _vm._s(post.user_name))]),
+                  _c("span", [_vm._v("Created by " + _vm._s(post.user.name))]),
                   _vm._v(" "),
                   _c("span", [_vm._v("At " + _vm._s(post.created_at))]),
                 ]

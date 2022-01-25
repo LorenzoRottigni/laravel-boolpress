@@ -14,13 +14,14 @@
                     <p>{{post.content}}</p>
                     <h4 class="my-3">
                         <span v-for="(tag, index) in post.tag" :key="'tag-'+index"
-                        class="badge text-white" :style="'background-color : ' + tag.color">
+                        class="badge text-white" :style="'background-color : ' + tag.color"
+                        >
                             {{tag.name}}
                         </span>
                     </h4>
                     <div class="post-footer d-flex justify-content-between">
-                        <span>About {{post.topic.name}}</span>
-                        <span>Created by {{post.user_name}}</span>
+                        <span >About {{post.topic.name}}</span>
+                        <span>Created by {{post.user.name}}</span>
                         <span>At {{post.created_at}}</span>
                     </div>
                 </li>
@@ -43,9 +44,9 @@ export default {
         }
     },
     mounted(){
-        axios.get('/api/posts')
+        axios.get("/api/posts?page=2")
             .then((response)=>{
-                this.posts = response.data
+                this.posts = response.data.data
                 console.log(this.posts);
             })
             .catch((err)=>{

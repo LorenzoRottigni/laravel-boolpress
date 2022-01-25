@@ -20,15 +20,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/posts', function(){
-    $postsList = Post::with('user','topic','tag')->get();
+//Route::get('/posts', function(){
+//    $postsList = Post::with('user','topic','tag')->get();
+//
+//    //foreach ($postsList as $post) {
+//    //    $topic = Topic::find($post->topic_id);
+//    //    $user = User::find($post->user_id);
+//    //    $post["user_name"] = $user->name;
+//    //    $post["topic"] = $topic->name;
+//    //}
+//    return $postsList;
+//});
 
-    //foreach ($postsList as $post) {
-    //    $topic = Topic::find($post->topic_id);
-    //    $user = User::find($post->user_id);
-    //    $post["user_name"] = $user->name;
-    //    $post["topic"] = $topic->name;
-    //}
-    return $postsList;
-});
-
+Route::get("/posts", "Api\PostController@index");

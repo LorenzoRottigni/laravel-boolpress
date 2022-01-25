@@ -19,7 +19,8 @@ class PostController extends Controller
     public function index()
     {
         //$postsList = Post::all();
-        $postsList = Post::with('user','topic','tag')->get();
+        $postsList = Post::with('user','topic','tag')->paginate(3);
+
         //foreach ($postsList as $post) {
         //    $topic = Topic::find($post->topic_id);
         //    $user = User::find($post->user_id);
