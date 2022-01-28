@@ -23,5 +23,6 @@ class PostController extends Controller
 
         //return $postsList;
         return response()->json($postsList);
-      }
+    }
+
 }

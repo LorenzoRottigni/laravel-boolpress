@@ -14,13 +14,13 @@
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
         <div class="d-flex flex-column full-height">
-            <header class="py-5 px-3">
+            <!--<header class="py-5 px-3">
                 <nav class="d-flex justify-content-between">
                     <img src="https://fontmeme.com/permalink/220117/5ba96e9b8ce780ed5447fcd83b0ae998.png" alt="battlefield-2042-font" border="0">
                     <div class="d-flex align-items-center">
@@ -38,28 +38,21 @@
                         </form>
                     </div>
                 </nav>
-            </header>
+            </header>-->
             <main class="flex-grow-1 overflow-auto">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12">
+                        {{--<div class="col-12">
                             <div class="title-container-pink rounded">
                                 <h1 class="mb-0"> @yield('title')</h1>
                             </div>
-                        </div>
-                        <div class="col-8 offset-2 pt-5">
-                            <h3 class="mb-5 text-center">
-                                Il 43% dei siti web usa la tecnologia WordPress.
-                                Blogger, piccole attività e grandi aziende nella lista Fortune 500 usano WordPress più di tutte le alternative messe insieme.
-                                Unisciti ai milioni di utenti che hanno scelto WordPress.com.
-                            </h3>
-                            <img src="/img/guest-hero-image.jpg" alt="guest hero image" class="w-100 rounded shadow-lg mb-5">
-                        </div>
+                        </div>--}}
                         <div class="col-12">
-                            <div class="d-flex h-100 align-items-center justify-content-center pt-5">
+                            <div class="d-flex h-100 align-items-center justify-content-center">
                                 @yield('main')
                             </div>
                         </div>
+
                     </div>
                 </div>
             </main>

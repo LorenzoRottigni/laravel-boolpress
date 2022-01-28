@@ -5,7 +5,7 @@
 
 @extends('layouts.guest')
 
-@section('title')
+{{-- @section('title')
 <button class="btn btn-lg btn-light mb-0">
     <a href="{{ route('login') }}">Login</a>
 </button>
@@ -13,7 +13,7 @@
     <a href="{{ route('register') }}">Register</a>
 </button>
 <span class="mx-5 mb-0">Start your own business with Boolpress !</span>
-@endsection
+@endsection --}}
 
 @section('main')
     <div class="container-fluid" id="root">
